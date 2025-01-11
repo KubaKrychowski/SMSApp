@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SMSApp.Behaviours"
+             x:Class="SMSApp.MVVM.View.AddStudentView"
+             Title="SMS App (Students Management System)">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Student ID -->
+            <Label Text="Student ID" FontAttributes="Bold" />
+            <Grid ColumnDefinitions="*, Auto" HorizontalOptions="FillAndExpand">
+                <Entry 
+                    Grid.Column="0"
+                    Text="{Binding StudentId}" 
+                    Placeholder="Enter Student ID" 
+                    HorizontalOptions="FillAndExpand"
+                    IsEnabled="false" />
+                <ImageButton 
+                    Grid.Column="1"
+                    Source="refresh.png"
+                    CornerRadius="8"
+                    HeightRequest="30"
+                    WidthRequest="30"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Command="{Binding GenerateStudentIdCommand}"/>
+            </Grid>
+
+            <!-- Name -->
+            <Label Text="Name" FontAttributes="Bold" />
+            <Entry Text="{Binding Name}" Placeholder="Enter Name" />
+
+            <!-- Age -->
+            <Label Text="Age" FontAttributes="Bold" />
+            <Entry Text="{Binding Age}" Placeholder="Enter Age" Keyboard="Numeric">
+                <Entry.Behaviors>
+                    <local:AgeValidationBehavior />
+                </Entry.Behaviors>
+            </Entry>
+
+            <!-- Grade -->
+            <Label Text="Grade" FontAttributes="Bold" />
+            <Entry Text="{Binding Grade}" Placeholder="Enter Grade (0.0 - 100.0)" Keyboard="Numeric">
+                <Entry.Behaviors>
+                    <local:GradeValidationBehavior />
+                </Entry.Behaviors>
+            </Entry>
+
+            <!-- Buttons in one row -->
+            <Grid ColumnDefinitions="49.5*,2*,49.5*" HorizontalOptions="FillAndExpand" Margin="0,20,0,0">
+                <!-- Add Student Button -->
+                <Button Text="Add Student"
+            Command="{Binding AddStudentToDbCommand}"
+            BackgroundColor="OliveDrab"
+            Grid.Column="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Center" />
+
+                <!-- Display All Students Button -->
+                <Button Text="Display All Students"
+            Command="{Binding ShowStudentsListCommand}"
+                        BackgroundColor="AliceBlue"
+            Grid.Column="2"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Center" />
+            </Grid>
+
+            <!-- Calculate Average -->
+            <Button BackgroundColor="Turquoise" Command="{Binding CalculateAverageGradeCommand}" Text="Calculate Average"  />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

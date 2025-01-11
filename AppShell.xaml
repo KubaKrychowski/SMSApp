@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="SMSApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:SMSApp.MVVM.View"
+    Shell.FlyoutBehavior="Disabled"
+    Title="SMSApp">
+
+    <ShellContent
+        Title="SMS App (Students Management System)"
+        ContentTemplate="{DataTemplate views:AddStudentView}"
+        Route="AddStudentView" />
+</Shell>

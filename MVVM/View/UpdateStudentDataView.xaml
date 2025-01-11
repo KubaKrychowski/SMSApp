@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SMSApp.Behaviours"
+             x:Class="SMSApp.MVVM.View.UpdateStudentDataView"
+             Title="Edit Student">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Student ID -->
+            <Label Text="Student ID" FontAttributes="Bold" />
+            <Grid ColumnDefinitions="*, Auto" HorizontalOptions="FillAndExpand">
+                <Label 
+                    Grid.Column="0"
+                    Text="{Binding Student.StudentId}"
+                    HorizontalOptions="FillAndExpand" />
+            </Grid>
+
+            <!-- Name -->
+            <Label Text="Name" FontAttributes="Bold" />
+            <Entry Text="{Binding Student.Name}" Placeholder="Enter student name" />
+
+            <!-- Age -->
+            <Label Text="Age" FontAttributes="Bold" />
+            <Entry Text="{Binding Student.Age}" Placeholder="Enter student age" Keyboard="Numeric">
+                <Entry.Behaviors>
+                    <local:AgeValidationBehavior />
+                </Entry.Behaviors>
+            </Entry>
+
+            <!-- Grade -->
+            <Label Text="Grade" FontAttributes="Bold" />
+            <Entry Text="{Binding Student.Grade}" Placeholder="Enter student grade" Keyboard="Numeric">
+                <Entry.Behaviors>
+                    <local:GradeValidationBehavior />
+                </Entry.Behaviors>
+            </Entry>
+
+            <!-- Save and Cancel Buttons -->
+            <Grid ColumnDefinitions="*" HorizontalOptions="FillAndExpand">
+                <!-- Save Button -->
+                <Button Text="Save Changes"
+                        Command="{Binding SaveChangesCommand}"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        Grid.Column="0"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SMSApp.MVVM.View"
+             x:Class="SMSApp.MVVM.View.StudentsListView"
+             Title="StudentsListView">
+
+    <VerticalStackLayout Padding="10">
+        <Label Text="Lista Studentów"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+
+        <CollectionView ItemsSource="{Binding Students}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="LightGray" Padding="10" Margin="5" HasShadow="True">
+                        <StackLayout Orientation="Horizontal">
+                            <!-- Front view with student name -->
+                            <Grid HorizontalOptions="FillAndExpand" RowDefinitions="*,*">
+                                <Label Grid.Row="0" FontSize="14" Text="{Binding StudentId}" />
+                                <Label Grid.Row="1"  Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                            </Grid>
+
+
+                            <!-- Buttons with spacing -->
+                            <Grid HorizontalOptions="End" ColumnSpacing="8" ColumnDefinitions="*,*,*">
+                                <!-- Update Button -->
+                                <Button Text="Pokaż podsumowanie" 
+                                        BackgroundColor="MediumOrchid" 
+                                        TextColor="White" 
+                                        Grid.Column="0"
+                                        HorizontalOptions="End"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:StudentsListView}}, Path=BindingContext.ShowStudentGradeCommand}"
+                                        CommandParameter="{Binding StudentId}" />
+                                
+                                <Button Text="Edytuj" 
+                                        BackgroundColor="Olive" 
+                                        TextColor="White" 
+                                        Grid.Column="1"
+                                        HorizontalOptions="End"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:StudentsListView}}, Path=BindingContext.UpdateStudentCommand}"
+                                        CommandParameter="{Binding StudentId}" />
+
+                                <!-- Delete Button -->
+                                <Button Text="Usuń" 
+                                        BackgroundColor="DarkRed" 
+                                        TextColor="White" 
+                                        Grid.Column="2"
+                                        HorizontalOptions="End"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:StudentsListView}}, Path=BindingContext.DeleteStudentCommand}"
+                                        CommandParameter="{Binding StudentId}" />
+                                
+
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
