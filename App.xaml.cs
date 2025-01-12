@@ -1,6 +1,5 @@
 ﻿using SMSApp.Application.Managers;
 using SMSApp.Domain.DataContext;
-using System.Diagnostics;
 
 namespace SMSApp
 {
@@ -13,7 +12,6 @@ namespace SMSApp
             dataContext.InitializeDb();
             _studentsManager = studentsManager;
             MainPage = new AppShell();
-            //throw new NotImplementedException();
         }
     }
 

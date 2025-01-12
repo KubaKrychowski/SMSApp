@@ -15,16 +15,12 @@
                 <DataTemplate>
                     <Frame BorderColor="LightGray" Padding="10" Margin="5" HasShadow="True">
                         <StackLayout Orientation="Horizontal">
-                            <!-- Front view with student name -->
                             <Grid HorizontalOptions="FillAndExpand" RowDefinitions="*,*">
                                 <Label Grid.Row="0" FontSize="14" Text="{Binding StudentId}" />
                                 <Label Grid.Row="1"  Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
                             </Grid>
 
-
-                            <!-- Buttons with spacing -->
                             <Grid HorizontalOptions="End" ColumnSpacing="8" ColumnDefinitions="*,*,*">
-                                <!-- Update Button -->
                                 <Button Text="Pokaż podsumowanie" 
                                         BackgroundColor="MediumOrchid" 
                                         TextColor="White" 
@@ -41,7 +37,6 @@
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type local:StudentsListView}}, Path=BindingContext.UpdateStudentCommand}"
                                         CommandParameter="{Binding StudentId}" />
 
-                                <!-- Delete Button -->
                                 <Button Text="Usuń" 
                                         BackgroundColor="DarkRed" 
                                         TextColor="White" 

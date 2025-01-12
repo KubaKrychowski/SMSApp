@@ -6,8 +6,6 @@
              Title="SMS App (Students Management System)">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-
-            <!-- Student ID -->
             <Label Text="Student ID" FontAttributes="Bold" />
             <Grid ColumnDefinitions="*, Auto" HorizontalOptions="FillAndExpand">
                 <Entry 
@@ -27,11 +25,9 @@
                     Command="{Binding GenerateStudentIdCommand}"/>
             </Grid>
 
-            <!-- Name -->
             <Label Text="Name" FontAttributes="Bold" />
             <Entry Text="{Binding Name}" Placeholder="Enter Name" />
 
-            <!-- Age -->
             <Label Text="Age" FontAttributes="Bold" />
             <Entry Text="{Binding Age}" Placeholder="Enter Age" Keyboard="Numeric">
                 <Entry.Behaviors>
@@ -39,7 +35,6 @@
                 </Entry.Behaviors>
             </Entry>
 
-            <!-- Grade -->
             <Label Text="Grade" FontAttributes="Bold" />
             <Entry Text="{Binding Grade}" Placeholder="Enter Grade (0.0 - 100.0)" Keyboard="Numeric">
                 <Entry.Behaviors>
@@ -47,9 +42,7 @@
                 </Entry.Behaviors>
             </Entry>
 
-            <!-- Buttons in one row -->
             <Grid ColumnDefinitions="49.5*,2*,49.5*" HorizontalOptions="FillAndExpand" Margin="0,20,0,0">
-                <!-- Add Student Button -->
                 <Button Text="Add Student"
             Command="{Binding AddStudentToDbCommand}"
             BackgroundColor="OliveDrab"
@@ -57,7 +50,6 @@
             HorizontalOptions="FillAndExpand"
             VerticalOptions="Center" />
 
-                <!-- Display All Students Button -->
                 <Button Text="Display All Students"
             Command="{Binding ShowStudentsListCommand}"
                         BackgroundColor="AliceBlue"
@@ -66,7 +58,6 @@
             VerticalOptions="Center" />
             </Grid>
 
-            <!-- Calculate Average -->
             <Button BackgroundColor="Turquoise" Command="{Binding CalculateAverageGradeCommand}" Text="Calculate Average"  />
         </VerticalStackLayout>
     </ScrollView>

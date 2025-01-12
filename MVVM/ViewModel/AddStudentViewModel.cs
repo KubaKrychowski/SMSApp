@@ -1,6 +1,6 @@
-﻿using Domain.Entities;
-using PropertyChanged;
+﻿using PropertyChanged;
 using SMSApp;
+using SMSApp.Domain.Entities;
 using System;
 using System.Windows.Input;
 

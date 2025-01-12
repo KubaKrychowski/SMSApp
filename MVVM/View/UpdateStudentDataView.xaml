@@ -6,8 +6,6 @@
              Title="Edit Student">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-
-            <!-- Student ID -->
             <Label Text="Student ID" FontAttributes="Bold" />
             <Grid ColumnDefinitions="*, Auto" HorizontalOptions="FillAndExpand">
                 <Label 
@@ -16,11 +14,9 @@
                     HorizontalOptions="FillAndExpand" />
             </Grid>
 
-            <!-- Name -->
             <Label Text="Name" FontAttributes="Bold" />
             <Entry Text="{Binding Student.Name}" Placeholder="Enter student name" />
 
-            <!-- Age -->
             <Label Text="Age" FontAttributes="Bold" />
             <Entry Text="{Binding Student.Age}" Placeholder="Enter student age" Keyboard="Numeric">
                 <Entry.Behaviors>
@@ -28,7 +24,6 @@
                 </Entry.Behaviors>
             </Entry>
 
-            <!-- Grade -->
             <Label Text="Grade" FontAttributes="Bold" />
             <Entry Text="{Binding Student.Grade}" Placeholder="Enter student grade" Keyboard="Numeric">
                 <Entry.Behaviors>
@@ -36,9 +31,7 @@
                 </Entry.Behaviors>
             </Entry>
 
-            <!-- Save and Cancel Buttons -->
             <Grid ColumnDefinitions="*" HorizontalOptions="FillAndExpand">
-                <!-- Save Button -->
                 <Button Text="Save Changes"
                         Command="{Binding SaveChangesCommand}"
                         BackgroundColor="Green"

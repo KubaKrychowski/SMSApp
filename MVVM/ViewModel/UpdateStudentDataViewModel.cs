@@ -1,6 +1,6 @@
-﻿using Domain.Entities;
-using PropertyChanged;
-using SMSApp.Domain.Exceptions;
+﻿using PropertyChanged;
+using SMSApp.Application.Exceptions;
+using SMSApp.Domain.Entities;
 using System.Windows.Input;
 
 namespace SMSApp.MVVM.ViewModel
@@ -21,16 +21,12 @@ namespace SMSApp.MVVM.ViewModel
             catch (NotFoundException ex)
             {
                 App.Current.MainPage
-                    .DisplayAlert("Nie znaleziono", $"{ex?.Message}", "OK")
-                    .GetAwaiter()
-                    .GetResult();
+                    .DisplayAlert("Nie znaleziono", $"{ex?.Message}", "OK");
             }
             catch (Exception ex) 
             {
                 App.Current.MainPage
-                    .DisplayAlert("Błąd", $"Błąd podczas wykonywania operacji na bazie danych: {ex?.Message}", "OK")
-                    .GetAwaiter()
-                    .GetResult();
+                    .DisplayAlert("Błąd", $"Błąd podczas wykonywania operacji na bazie danych: {ex?.Message}", "OK");
             }
             
             SaveChangesCommand = new Command(async () =>
